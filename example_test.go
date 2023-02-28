@@ -2,9 +2,8 @@ package mg
 
 import (
 	"context"
-	"github.com/gocrud/mg/pipe"
+	"github.com/cloudneedle/mongo/pipe"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
 	"os"
 	"testing"
@@ -16,7 +15,7 @@ var db *DB
 
 func init() {
 	var err error
-	cli, err = NewClient(context.Background(), options.Client().ApplyURI(os.Getenv("MONGO")))
+	cli, err = NewClient(context.Background(), os.Getenv("MONGO"))
 	if err != nil {
 		panic(err)
 	}
